@@ -10,7 +10,7 @@ import os
 def load_assets():
     base_path = os.path.dirname(__file__)
     df = pd.read_csv(os.path.join(base_path, "df_v7.csv"), parse_dates=["Date"])
-    model = load_model(os.path.join(base_path, "lstm_model.h5"))
+    model = load_model(os.path.join(base_path, "lstm_model.keras"))
     scaler = joblib.load(os.path.join(base_path, "lstm_scaler.pkl"))
     return df, model, scaler
 
