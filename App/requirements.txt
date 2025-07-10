@@ -3,5 +3,5 @@ pandas
 numpy
 scikit-learn
 keras
-tensorflow
-joblib
+tensorflow==2.13.0
+matplotlib
