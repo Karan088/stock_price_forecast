@@ -3,13 +3,15 @@ import pandas as pd
 import numpy as np
 from keras.models import load_model
 import joblib
+import os
 
-# Load data, model and scaler
+#load assets
 @st.cache_data
 def load_assets():
-    df = pd.read_csv("df_v7.csv", parse_dates=["Date"])
-    model = load_model("lstm_model.h5")
-    scaler = joblib.load("lstm_scaler.pkl")
+    base_path = os.path.dirname(__file__)
+    df = pd.read_csv(os.path.join(base_path, "df_v7.csv"), parse_dates=["Date"])
+    model = load_model(os.path.join(base_path, "lstm_model.h5"))
+    scaler = joblib.load(os.path.join(base_path, "lstm_scaler.pkl"))
     return df, model, scaler
 
 df, model, scaler = load_assets()
